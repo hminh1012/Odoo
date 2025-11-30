@@ -1,0 +1,65 @@
+<odoo>
+    <template id="attendance_form" name="Attendance Form">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="mb-0">Mark Attendance</h3>
+                            </div>
+                            <div class="card-body">
+                                <t t-if="error">
+                                    <div class="alert alert-danger" role="alert">
+                                        <t t-esc="error"/>
+                                    </div>
+                                </t>
+                                <t t-if="success">
+                                    <div class="alert alert-success" role="alert">
+                                        <t t-esc="success"/>
+                                    </div>
+                                </t>
+
+                                <form action="/attendance/submit" method="post">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <div class="form-group mb-3">
+                                        <label for="student_code">Student Code</label>
+                                        <input type="text" class="form-control" id="student_code" name="student_code" t-att-value="student_code" required="required" placeholder="Enter Student Code"/>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="row justify-content-center mt-4" t-if="attendance_logs">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header bg-info text-white">
+                            <h4 class="mb-0">Today's Attendance</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Student Name</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="attendance_logs" t-as="log">
+                                        <td><span t-field="log.create_date" t-options='{"widget": "datetime", "format": "HH:mm:ss"}'/></td>
+                                        <td><span t-field="log.student_id.name"/></td>
+                                        <td><span t-field="log.type"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    </template>
+</odoo>

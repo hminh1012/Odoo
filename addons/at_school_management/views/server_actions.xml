@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_geocode_selected_students" model="ir.actions.server">
+        <field name="name">Geocode selected</field>
+        <field name="model_id" ref="model_school_student"/>
+        <field name="binding_model_id" ref="model_school_student"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+# Open the geocode wizard
+action = env.ref('school.action_school_geocode_wizard').sudo().read()[0]
+action['context'] = {'active_model': 'school.student', 'active_ids': active_ids}
+result = action
+        </field>
+    </record>
+
+    <record id="action_geocode_selected_stops" model="ir.actions.server">
+        <field name="name">Geocode selected</field>
+        <field name="model_id" ref="model_school_transport_stop"/>
+        <field name="binding_model_id" ref="model_school_transport_stop"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+# Open the geocode wizard
+action = env.ref('school.action_school_geocode_wizard').sudo().read()[0]
+action['context'] = {'active_model': 'school.transport.stop', 'active_ids': active_ids}
+result = action
+        </field>
+    </record>
+</odoo>

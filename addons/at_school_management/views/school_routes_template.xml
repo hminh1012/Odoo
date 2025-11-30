@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="school_routes_page_new" name="School Bus Routes">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4">School Bus Routes</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Route Name</th>
+                                        <th>Bus Number</th>
+                                        <th>Driver Name</th>
+                                        <th>Capacity</th>
+                                        <th>Map</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="routes" t-as="route">
+                                        <tr>
+                                            <td><span t-field="route.name"/></td>
+                                            <td><span t-field="route.bus_number"/></td>
+                                            <td><span t-field="route.driver_name"/></td>
+                                            <td><span t-field="route.capacity"/></td>
+                                            <td>
+                                                <a t-attf-href="/school_transport/map/#{route.id}" class="btn btn-sm btn-primary">
+                                                    View Map
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div t-if="not routes" class="alert alert-info">
+                            No bus routes found.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Departments -->
+        <record id="dept_fast" model="hr.department">
+            <field name="name">Khoa Khoa học Công nghệ Tiên Tiến</field>
+        </record>
+
+        <record id="dept_qa" model="hr.department">
+            <field name="name">Phòng Khảo thí và Đảm bảo chất lượng giáo dục</field>
+        </record>
+
+        <record id="dept_et" model="hr.department">
+            <field name="name">Khoa Điện tử Viễn thông</field>
+        </record>
+
+        <!-- Teacher 1 -->
+        <record id="teacher_nguyen_le_hoa" model="hr.employee">
+            <field name="name">Nguyễn Lê Hòa</field>
+            <field name="job_title">Trưởng Khoa</field>
+            <field name="department_id" ref="dept_fast"/>
+            <field name="qualification">Tiến sĩ; năm: 2012; Chuyên ngành: Điều khiển tự động; Tại: Hàn Quốc</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 2 -->
+        <record id="teacher_nguyen_thi_anh_thu" model="hr.employee">
+            <field name="name">Nguyễn Thị Anh Thư</field>
+            <field name="job_title">Phó Trưởng Khoa</field>
+            <field name="department_id" ref="dept_fast"/>
+            <field name="qualification">Tiến sĩ; năm: 2014; Chuyên ngành: Kỹ thuật Điện-Y sinh; Tại: Catholic University of America</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 3 -->
+        <record id="teacher_pham_van_tuan" model="hr.employee">
+            <field name="name">Phạm Văn Tuấn</field>
+            <field name="job_title">Trưởng phòng</field>
+            <field name="department_id" ref="dept_qa"/>
+            <field name="qualification">Tiến sĩ; năm: 2007; Chuyên ngành: Xử lý tín hiệu; Tại: Đại học Kỹ thuật Graz, CH Áo</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 4 -->
+        <record id="teacher_nguyen_chanh_tu" model="hr.employee">
+            <field name="name">Nguyễn Chánh Tú</field>
+            <field name="job_title">Phó Trưởng phòng</field>
+            <field name="department_id" ref="dept_qa"/>
+            <field name="qualification">Tiến sĩ; năm: 2000; Chuyên ngành: Toán Học; Tại: Đại Học Utrecht, Hà Lan</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 5 -->
+        <record id="teacher_le_quoc_huy" model="hr.employee">
+            <field name="name">Lê Quốc Huy</field>
+            <field name="job_title">Trưởng Bộ môn</field>
+            <field name="department_id" ref="dept_fast"/>
+            <field name="qualification">Tiến sĩ; năm: 2011; Chuyên ngành: Vật lý ứng dụng; Tại: Université de Grenoble, CH Pháp</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 6 -->
+        <record id="teacher_nguyen_quang_nhu_quynh" model="hr.employee">
+            <field name="name">Nguyễn Quang Như Quỳnh</field>
+            <field name="job_title">Phụ trách CTTT Điện tử Viễn thông</field>
+            <field name="department_id" ref="dept_fast"/>
+            <field name="qualification">Tiến sĩ; năm: 2016; Chuyên ngành: Điện tử-viễn thông; Tại: Trường Đại học Điện tử-thông tin Tokyo</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 7 -->
+        <record id="teacher_nguyen_van_tuan" model="hr.employee">
+            <field name="name">Nguyễn Văn Tuấn</field>
+            <field name="job_title">Trưởng khoa</field>
+            <field name="department_id" ref="dept_et"/>
+            <field name="qualification">Tiến sĩ; năm: 2003; Chuyên ngành: Điện tử Viễn thông; Tại: Trường Đại học Bách khoa Hà Nội</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 8 -->
+        <record id="teacher_bui_thi_minh_tu" model="hr.employee">
+            <field name="name">Bùi Thị Minh Tú</field>
+            <field name="job_title">Phó Trưởng khoa</field>
+            <field name="department_id" ref="dept_et"/>
+            <field name="qualification">Tiến sĩ; năm: 2010; Chuyên ngành: Xử lý tín hiệu; Tại: Universite de Technologie de Compiegne</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 9 -->
+        <record id="teacher_huynh_viet_thang" model="hr.employee">
+            <field name="name">Huỳnh Việt Thắng</field>
+            <field name="job_title">Trưởng Bộ môn</field>
+            <field name="department_id" ref="dept_et"/>
+            <field name="qualification">Tiến sĩ; năm: 2012; Chuyên ngành: Điện - Điện tử; Tại: Đại học Kỹ thuật Graz (TUGraz), Cộng hòa Áo (Austria)</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 10 -->
+        <record id="teacher_ho_phuoc_tien" model="hr.employee">
+            <field name="name">Hồ Phước Tiến</field>
+            <field name="job_title">Trưởng Bộ môn</field>
+            <field name="department_id" ref="dept_et"/>
+            <field name="qualification">Tiến sĩ; năm: 2010; Chuyên ngành: Điện tử-Viễn thông; Tại: Pháp</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 11 -->
+        <record id="teacher_phan_tran_dang_khoa" model="hr.employee">
+            <field name="name">Phan Trần Đăng Khoa</field>
+            <field name="job_title">Trưởng Bộ môn</field>
+            <field name="department_id" ref="dept_et"/>
+            <field name="qualification">Tiến sĩ; năm: 2015; Chuyên ngành: Điện tử - Viễn thông; Tại: Tula State University</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 12 -->
+        <record id="teacher_nguyen_van_cuong" model="hr.employee">
+            <field name="name">Nguyễn Văn Cường</field>
+            <field name="job_title">Giảng viên</field>
+            <field name="department_id" ref="dept_et"/>
+            <field name="qualification">Tiến sĩ; năm: 2000; Chuyên ngành: Kỹ thuật Điện tử; Tại: Uni BW Munich, Germany</field>
+            <field name="is_teacher">True</field>
+        </record>
+
+        <!-- Teacher 13 -->
+        <record id="teacher_nguyen_tan_hung" model="hr.employee">
+            <field name="name">Nguyễn Tấn Hưng</field>
+            <field name="job_title">Giảng viên</field>
+            <field name="department_id" ref="dept_et"/>
+            <field name="qualification">Tiến sĩ; năm: 2012; Chuyên ngành: Điện tử-Viễn thông; Tại: The University of Electro-Communications, Tokyo</field>
+            <field name="is_teacher">True</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_school_geocode_wizard_form" model="ir.ui.view">
+        <field name="name">school.geocode.wizard.form</field>
+        <field name="model">school.geocode.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Geocode Records">
+                <sheet>
+                    <p>
+                        You are about to geocode all selected records.
+                        This will contact OpenStreetMap to find and save the latitude and longitude.
+                        <br/><br/>
+                        This action will process
+                        <strong><field name="active_ids_count" nolabel="1"/></strong>
+                        record(s) from the
+                        <strong><field name="active_model_name" nolabel="1"/></strong>
+                        model.
+                    </p>
+                    <p>
+                        Do you want to proceed?
+                    </p>
+                    <field name="active_ids_count" invisible="1"/>
+                    <field name="active_model_name" invisible="1"/>
+                </sheet>
+                <footer>
+                    <button name="action_geocode_records" string="Geocode" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_geocode_wizard" model="ir.actions.act_window">
+        <field name="name">Geocode Selected Records</field>
+        <field name="res_model">school.geocode.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

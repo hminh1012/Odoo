@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Map Template -->
+    <template id="transport_map_template" name="Transport Route Map">
+        <t t-call="web.layout">
+            <t t-set="head">
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+                    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+                    crossorigin=""/>
+                <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+                    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+                    crossorigin=""></script>
+                <style>
+                    #map {
+                        height: 100vh;
+                        width: 100%;
+                    }
+                    .route-info {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: white;
+                        padding: 15px;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                        z-index: 1000;
+                        max-width: 300px;
+                    }
+                    .route-info h3 {
+                        margin-top: 0;
+                        color: #333;
+                    }
+                    .route-info p {
+                        margin: 5px 0;
+                        font-size: 14px;
+                    }
+                    .leaflet-popup-content {
+                        font-size: 14px;
+                    }
+                    .stop-marker {
+                        background-color: #4CAF50;
+                        border: 2px solid white;
+                        border-radius: 50%;
+                        width: 20px;
+                        height: 20px;
+                    }
+                </style>
+            </t>
+            <div id="map"></div>
+            <div class="route-info">
+                <h3><t t-esc="route.name"/></h3>
+                <p><strong>Bus Number:</strong> <t t-esc="route.bus_number"/></p>
+                <p><strong>Driver:</strong> <t t-esc="route.driver_name or 'N/A'"/></p>
+                <p><strong>Total Distance:</strong> <t t-esc="route.total_distance"/> km</p>
+                <p><strong>Stops:</strong> <t t-esc="len(route.stop_ids)"/></p>
+            </div>
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function() {
+                    var mapData = <t t-out="map_data"/>;
+                    var centerLat = <t t-out="center_lat"/>;
+                    var centerLon = <t t-out="center_lon"/>;
+                    
+                    // Initialize map centered on Danang or route center
+                    var map = L.map('map').setView([centerLat, centerLon], 13);
+                    
+                    // Add OpenStreetMap tile layer
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&#169; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                        maxZoom: 19
+                    }).addTo(map);
+                    
+                    // Add markers for each stop
+                    var markers = [];
+                    var latlngs = [];
+                    
+                    mapData.stops.forEach(function(stop, index) {
+                        var marker = L.marker([stop.lat, stop.lon]).addTo(map);
+                        
+                        // Format time for display
+                        var arrivalTime = stop.arrival_time ? stop.arrival_time.toFixed(2) : 'N/A';
+                        var departureTime = stop.departure_time ? stop.departure_time.toFixed(2) : 'N/A';
+                        
+                        marker.bindPopup(
+                            '<b>Stop ' + (index + 1) + ': ' + stop.name + '</b><br/>' +
+                            'Arrival: ' + arrivalTime + '<br/>' +
+                            'Departure: ' + departureTime
+                        );
+                        
+                        markers.push(marker);
+                        latlngs.push([stop.lat, stop.lon]);
+                    });
+                    
+                    // Draw route polyline
+                    if (latlngs.length > 1) {
+                        var polyline = L.polyline(latlngs, {
+                            color: '#2196F3',
+                            weight: 4,
+                            opacity: 0.7
+                        }).addTo(map);
+                        
+                        // Fit map to show entire route
+                        map.fitBounds(polyline.getBounds(), {padding: [50, 50]});
+                    } else if (latlngs.length === 1) {
+                        map.setView(latlngs[0], 15);
+                    }
+                    
+                    // Add scale control
+                    L.control.scale().addTo(map);
+                });
+            </script>
+        </t>
+    </template>
+    
+    <!-- Error Template -->
+    <template id="transport_map_error" name="Transport Map Error">
+        <t t-call="web.layout">
+            <div class="container mt-5">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Error!</h4>
+                    <p><t t-esc="error"/></p>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

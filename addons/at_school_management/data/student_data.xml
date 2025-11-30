@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Class Record -->
+        <record id="class_21ece" model="school.class">
+            <field name="name">21ECE</field>
+            <field name="section">A</field>
+            <field name="grade">13</field>
+            <field name="academic_year">2021-2025</field>
+        </record>
+
+        <!-- Student Records -->
+        <record id="student_123210001" model="school.student">
+            <field name="name">Nguyễn Đạt</field>
+            <field name="admission_no">123210001</field>
+            <field name="roll_no">123210001</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210004" model="school.student">
+            <field name="name">Trần Châu Huy</field>
+            <field name="admission_no">123210004</field>
+            <field name="roll_no">123210004</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210005" model="school.student">
+            <field name="name">Lê Tự Bảo Khánh</field>
+            <field name="admission_no">123210005</field>
+            <field name="roll_no">123210005</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210006" model="school.student">
+            <field name="name">Lê Công Thành Khoa</field>
+            <field name="admission_no">123210006</field>
+            <field name="roll_no">123210006</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210007" model="school.student">
+            <field name="name">Dương Uy Lực</field>
+            <field name="admission_no">123210007</field>
+            <field name="roll_no">123210007</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210008" model="school.student">
+            <field name="name">Trần Hoàng Minh</field>
+            <field name="admission_no">123210008</field>
+            <field name="roll_no">123210008</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210009" model="school.student">
+            <field name="name">Nguyễn Đình Sáng</field>
+            <field name="admission_no">123210009</field>
+            <field name="roll_no">123210009</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210010" model="school.student">
+            <field name="name">Ngô Thanh Thảo</field>
+            <field name="admission_no">123210010</field>
+            <field name="roll_no">123210010</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">female</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210011" model="school.student">
+            <field name="name">Trần Hoài Nhã Thi</field>
+            <field name="admission_no">123210011</field>
+            <field name="roll_no">123210011</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">female</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210078" model="school.student">
+            <field name="name">Đinh Xuân Tiên Định</field>
+            <field name="admission_no">123210078</field>
+            <field name="roll_no">123210078</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210079" model="school.student">
+            <field name="name">Nguyễn Minh Hoàng</field>
+            <field name="admission_no">123210079</field>
+            <field name="roll_no">123210079</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210080" model="school.student">
+            <field name="name">Nguyễn Văn Huy Hoàng</field>
+            <field name="admission_no">123210080</field>
+            <field name="roll_no">123210080</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210081" model="school.student">
+            <field name="name">Đặng Phương Huy</field>
+            <field name="admission_no">123210081</field>
+            <field name="roll_no">123210081</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210091" model="school.student">
+            <field name="name">Nguyễn Thị Tâm</field>
+            <field name="admission_no">123210091</field>
+            <field name="roll_no">123210091</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">female</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210092" model="school.student">
+            <field name="name">Võ Văn Bưu</field>
+            <field name="admission_no">123210092</field>
+            <field name="roll_no">123210092</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210093" model="school.student">
+            <field name="name">Trần Vũ Đạt</field>
+            <field name="admission_no">123210093</field>
+            <field name="roll_no">123210093</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210094" model="school.student">
+            <field name="name">Lê Văn Đức</field>
+            <field name="admission_no">123210094</field>
+            <field name="roll_no">123210094</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210097" model="school.student">
+            <field name="name">Bùi Quang Minh</field>
+            <field name="admission_no">123210097</field>
+            <field name="roll_no">123210097</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210098" model="school.student">
+            <field name="name">Nguyễn Thành Minh</field>
+            <field name="admission_no">123210098</field>
+            <field name="roll_no">123210098</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210099" model="school.student">
+            <field name="name">Huỳnh Quang Nhật</field>
+            <field name="admission_no">123210099</field>
+            <field name="roll_no">123210099</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210100" model="school.student">
+            <field name="name">Đặng Minh Quân</field>
+            <field name="admission_no">123210100</field>
+            <field name="roll_no">123210100</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210101" model="school.student">
+            <field name="name">Lương Như Quỳnh</field>
+            <field name="admission_no">123210101</field>
+            <field name="roll_no">123210101</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">female</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210102" model="school.student">
+            <field name="name">Phan Nguyễn Anh Tài</field>
+            <field name="admission_no">123210102</field>
+            <field name="roll_no">123210102</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+        <record id="student_123210103" model="school.student">
+            <field name="name">Nguyễn Ngọc Quang Thắng</field>
+            <field name="admission_no">123210103</field>
+            <field name="roll_no">123210103</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+        </record>
+
+
+        <!-- New Students from Second Image -->
+        <record id="student_123210015" model="school.student">
+            <field name="name">Trần Phước Diễn</field>
+            <field name="admission_no">123210015</field>
+            <field name="roll_no">123210015</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0702341350</field>
+            <field name="email">Tran562003@gmail.com</field>
+        </record>
+
+        <record id="student_123210016" model="school.student">
+            <field name="name">Lê Quốc Duy</field>
+            <field name="admission_no">123210016</field>
+            <field name="roll_no">123210016</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0948004717</field>
+            <field name="email">lequocduy2411@gmail.com</field>
+        </record>
+
+        <record id="student_123210018" model="school.student">
+            <field name="name">Trần Đặng Khánh Nam</field>
+            <field name="admission_no">123210018</field>
+            <field name="roll_no">123210018</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0905480888</field>
+            <field name="email">khanhnamdng@gmail.com</field>
+        </record>
+
+        <record id="student_123210019" model="school.student">
+            <field name="name">Trần Văn Thanh Nhật</field>
+            <field name="admission_no">123210019</field>
+            <field name="roll_no">123210019</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0898070849</field>
+            <field name="email">tnhat216003@gmail.com</field>
+        </record>
+
+        <record id="student_123210020" model="school.student">
+            <field name="name">Nguyễn Thành Phúc</field>
+            <field name="admission_no">123210020</field>
+            <field name="roll_no">123210020</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0913029503</field>
+            <field name="email">fucs482003@gmail.com</field>
+        </record>
+
+        <record id="student_123210021" model="school.student">
+            <field name="name">Trần Vũ Hồng Phúc</field>
+            <field name="admission_no">123210021</field>
+            <field name="roll_no">123210021</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0967475493</field>
+            <field name="email">hongphuc72303@gmail.com</field>
+        </record>
+
+        <record id="student_123210022" model="school.student">
+            <field name="name">Nguyễn Quang Thạc</field>
+            <field name="admission_no">123210022</field>
+            <field name="roll_no">123210022</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0902722468</field>
+            <field name="email">quangthac1712@gmail.com</field>
+        </record>
+
+        <record id="student_123210023" model="school.student">
+            <field name="name">Trương Ngọc Thắng</field>
+            <field name="admission_no">123210023</field>
+            <field name="roll_no">123210023</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0908011003</field>
+            <field name="email">tngocthang2003@gmail.com</field>
+        </record>
+
+        <record id="student_123210024" model="school.student">
+            <field name="name">Trần Chí Thành</field>
+            <field name="admission_no">123210024</field>
+            <field name="roll_no">123210024</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0935631016</field>
+            <field name="email">tchieo2004@gmail.com</field>
+        </record>
+
+        <record id="student_123210025" model="school.student">
+            <field name="name">Lê Đình Bảo Tín</field>
+            <field name="admission_no">123210025</field>
+            <field name="roll_no">123210025</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0704669440</field>
+            <field name="email">kuuhakusorq@gmail.com</field>
+        </record>
+
+        <record id="student_123210083" model="school.student">
+            <field name="name">Đặng Tuấn Anh</field>
+            <field name="admission_no">123210083</field>
+            <field name="roll_no">123210083</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0363838247</field>
+            <field name="email">tuananh2017pro@gmail.com</field>
+        </record>
+
+        <record id="student_123210084" model="school.student">
+            <field name="name">Nguyễn Đức Hưng</field>
+            <field name="admission_no">123210084</field>
+            <field name="roll_no">123210084</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0379681235</field>
+            <field name="email">NDH.nguyenhung@gmail.com</field>
+        </record>
+
+        <record id="student_123210085" model="school.student">
+            <field name="name">Phan Đình Khánh</field>
+            <field name="admission_no">123210085</field>
+            <field name="roll_no">123210085</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0836074056</field>
+            <field name="email">phandinhkhanh14@gmail.com</field>
+        </record>
+
+        <record id="student_123210086" model="school.student">
+            <field name="name">Nguyễn Viết Anh Quân</field>
+            <field name="admission_no">123210086</field>
+            <field name="roll_no">123210086</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0903522718</field>
+            <field name="email">nvanhquan182@gmail.com</field>
+        </record>
+
+        <record id="student_123210088" model="school.student">
+            <field name="name">Phạm Văn Tiên</field>
+            <field name="admission_no">123210088</field>
+            <field name="roll_no">123210088</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0867944787</field>
+            <field name="email">phamvantienpvt1910@gmail.com</field>
+        </record>
+
+        <record id="student_123210104" model="school.student">
+            <field name="name">Trần Minh Ánh</field>
+            <field name="admission_no">123210104</field>
+            <field name="roll_no">123210104</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">female</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0357459252</field>
+            <field name="email">tmanh.8a@gmail.com</field>
+        </record>
+
+        <record id="student_123210105" model="school.student">
+            <field name="name">Phan Bá Nguyễn Bảo</field>
+            <field name="admission_no">123210105</field>
+            <field name="roll_no">123210105</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0793519154</field>
+            <field name="email">baonguyen22303@gmail.com</field>
+        </record>
+
+        <record id="student_123210106" model="school.student">
+            <field name="name">Phan Dương Gia Bảo</field>
+            <field name="admission_no">123210106</field>
+            <field name="roll_no">123210106</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0969729106</field>
+            <field name="email">giabaopd@gmail.com</field>
+        </record>
+
+        <record id="student_123210107" model="school.student">
+            <field name="name">Trần Đình Bảo</field>
+            <field name="admission_no">123210107</field>
+            <field name="roll_no">123210107</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0898222563</field>
+            <field name="email">dinhbao3121@gmail.com</field>
+        </record>
+
+        <record id="student_123210108" model="school.student">
+            <field name="name">Phạm Minh Chiến</field>
+            <field name="admission_no">123210108</field>
+            <field name="roll_no">123210108</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0833399809</field>
+            <field name="email">chienphamminh2003@gmail.com</field>
+        </record>
+
+        <record id="student_123210110" model="school.student">
+            <field name="name">Hoàng Tiến Đạt</field>
+            <field name="admission_no">123210110</field>
+            <field name="roll_no">123210110</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0924215439</field>
+            <field name="email">tiendat2003tiendat@gmail.com</field>
+        </record>
+
+        <record id="student_123210111" model="school.student">
+            <field name="name">Nguyễn Đình Tiến Đạt</field>
+            <field name="admission_no">123210111</field>
+            <field name="roll_no">123210111</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0945613005</field>
+            <field name="email">PvZdatpro2@gmail.com</field>
+        </record>
+
+        <record id="student_123210112" model="school.student">
+            <field name="name">Phạm Tiến Đạt</field>
+            <field name="admission_no">123210112</field>
+            <field name="roll_no">123210112</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0932414867</field>
+            <field name="email">ptdat0410@gmail.com</field>
+        </record>
+
+        <record id="student_123210113" model="school.student">
+            <field name="name">Phạm Anh Hào</field>
+            <field name="admission_no">123210113</field>
+            <field name="roll_no">123210113</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0374361436</field>
+            <field name="email">haophamabk@gmail.com</field>
+        </record>
+
+        <record id="student_123210114" model="school.student">
+            <field name="name">Trần Ngọc Hiệp</field>
+            <field name="admission_no">123210114</field>
+            <field name="roll_no">123210114</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0777470802</field>
+            <field name="email">tranngochiep6969@gmail.com</field>
+        </record>
+
+        <record id="student_123210116" model="school.student">
+            <field name="name">Phùng Đỗ Anh Khoa</field>
+            <field name="admission_no">123210116</field>
+            <field name="roll_no">123210116</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0777853988</field>
+            <field name="email">phungdoanhkhoa@gmail.com</field>
+        </record>
+
+        <record id="student_123210117" model="school.student">
+            <field name="name">Lê Quang Kiệt</field>
+            <field name="admission_no">123210117</field>
+            <field name="roll_no">123210117</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0905808971</field>
+            <field name="email">lequangkiet2009@gmail.com</field>
+        </record>
+
+        <record id="student_123210118" model="school.student">
+            <field name="name">Võ Tuấn Kiệt</field>
+            <field name="admission_no">123210118</field>
+            <field name="roll_no">123210118</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0392527932</field>
+            <field name="email">vuwin24680@gmail.com</field>
+        </record>
+
+        <record id="student_123210119" model="school.student">
+            <field name="name">Đặng Văn Minh</field>
+            <field name="admission_no">123210119</field>
+            <field name="roll_no">123210119</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0336217406</field>
+            <field name="email">dangminh.03112003@gmail.com</field>
+        </record>
+
+        <record id="student_123210120" model="school.student">
+            <field name="name">Hoàng Thị Tuyết My</field>
+            <field name="admission_no">123210120</field>
+            <field name="roll_no">123210120</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">female</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0867010097</field>
+            <field name="email">httmy2003a2@gmail.com</field>
+        </record>
+
+        <record id="student_123210121" model="school.student">
+            <field name="name">Trần Nguyễn Hoài Nam</field>
+            <field name="admission_no">123210121</field>
+            <field name="roll_no">123210121</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0852297684</field>
+            <field name="email">namtranhoai179.3@gmail.com</field>
+        </record>
+
+        <record id="student_123210122" model="school.student">
+            <field name="name">Nguyễn Thế Nhân</field>
+            <field name="admission_no">123210122</field>
+            <field name="roll_no">123210122</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0968674203</field>
+            <field name="email">thenhan144@gmail.com</field>
+        </record>
+
+        <record id="student_123210123" model="school.student">
+            <field name="name">Phạm Hữu Phước</field>
+            <field name="admission_no">123210123</field>
+            <field name="roll_no">123210123</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0905421859</field>
+            <field name="email">phamhuuphuoc07@gmail.com</field>
+        </record>
+
+        <record id="student_123210124" model="school.student">
+            <field name="name">Phan Đình Quý</field>
+            <field name="admission_no">123210124</field>
+            <field name="roll_no">123210124</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0905137459</field>
+            <field name="email">phandinhquy1103@gmail.com</field>
+        </record>
+
+        <record id="student_123210126" model="school.student">
+            <field name="name">Trương Phước Thịnh</field>
+            <field name="admission_no">123210126</field>
+            <field name="roll_no">123210126</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0985126087</field>
+            <field name="email">phuocthinhtruong7103@gmail.com</field>
+        </record>
+
+        <record id="student_123210127" model="school.student">
+            <field name="name">Võ Đại Thuận</field>
+            <field name="admission_no">123210127</field>
+            <field name="roll_no">123210127</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0766538245</field>
+            <field name="email">Vdthuan2k3@gmail.com</field>
+        </record>
+
+        <record id="student_123210128" model="school.student">
+            <field name="name">Bùi Đỗ Hải Trình</field>
+            <field name="admission_no">123210128</field>
+            <field name="roll_no">123210128</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0911500989</field>
+            <field name="email">haitrinh.bui123@gmail.com</field>
+        </record>
+
+        <record id="student_123210129" model="school.student">
+            <field name="name">Lê Gia Vinh</field>
+            <field name="admission_no">123210129</field>
+            <field name="roll_no">123210129</field>
+            <field name="class_id" ref="class_21ece"/>
+            <field name="dob">2003-01-01</field>
+            <field name="gender">male</field>
+            <field name="blood_group">O+</field>
+            <field name="house_address">Danang</field>
+            <field name="doj">2021-09-01</field>
+            <field name="phone">0399130634</field>
+            <field name="email">legiavinh2k3@gmail.com</field>
+        </record>
+
+    </data>
+</odoo>

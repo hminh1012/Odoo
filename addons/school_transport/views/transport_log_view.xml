@@ -1,0 +1,52 @@
+<odoo>
+    <record id="view_transport_log_tree" model="ir.ui.view">
+        <field name="name">transport.log.tree</field>
+        <field name="model">transport.log</field>
+        <field name="arch" type="xml">
+            <list string="Transport Logs" create="0" edit="0">
+                <field name="timestamp"/>
+                <field name="student_id"/>
+                <field name="type" widget="badge" decoration-info="type == 'pickup'" decoration-success="type == 'dropoff'"/>
+                <field name="gps_location"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_transport_log_form" model="ir.ui.view">
+        <field name="name">transport.log.form</field>
+        <field name="model">transport.log</field>
+        <field name="arch" type="xml">
+            <form string="Transport Log">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="student_code"/>
+                            <field name="vehicle_id"/>
+                        </group>
+                        <group>
+                            <field name="timestamp"/>
+                            <field name="type"/>
+                            <field name="gps_location"/>
+                        </group>
+                    </group>
+                    <group string="Evidence">
+                        <field name="image" widget="image" options="{'size': [400, 400]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_transport_log" model="ir.actions.act_window">
+        <field name="name">Attendance History</field>
+        <field name="res_model">transport.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_transport_log" 
+              parent="at_school_management.menu_school_transport" 
+              action="action_transport_log" 
+              name="Vehicle History" 
+              sequence="20"/>
+</odoo>

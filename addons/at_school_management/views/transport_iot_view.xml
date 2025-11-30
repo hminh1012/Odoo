@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Student Card Views -->
+        <record id="view_student_card_tree" model="ir.ui.view">
+            <field name="name">school.student.card.tree</field>
+            <field name="model">school.student.card</field>
+            <field name="arch" type="xml">
+                <list string="Student Cards">
+                    <field name="card_id"/>
+                    <field name="student_id"/>
+                    <field name="issued_date"/>
+                    <field name="status"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_student_card_form" model="ir.ui.view">
+            <field name="name">school.student.card.form</field>
+            <field name="model">school.student.card</field>
+            <field name="arch" type="xml">
+                <form string="Student Card">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="card_id"/>
+                                <field name="student_id"/>
+                            </group>
+                            <group>
+                                <field name="issued_date"/>
+                                <field name="status"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_student_card" model="ir.actions.act_window">
+            <field name="name">Student Cards</field>
+            <field name="res_model">school.student.card</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Trip Log Views -->
+        <record id="view_trip_log_tree" model="ir.ui.view">
+            <field name="name">school.transport.trip.log.tree</field>
+            <field name="model">school.transport.trip.log</field>
+            <field name="arch" type="xml">
+                <list string="Trip Logs" create="false" edit="false">
+                    <field name="timestamp"/>
+                    <field name="student_id"/>
+                    <field name="card_id"/>
+                    <field name="event_type"/>
+                    <field name="status"/>
+                    <field name="gps_lat"/>
+                    <field name="gps_lon"/>
+                    <field name="message"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_trip_log_form" model="ir.ui.view">
+            <field name="name">school.transport.trip.log.form</field>
+            <field name="model">school.transport.trip.log</field>
+            <field name="arch" type="xml">
+                <form string="Trip Log" create="false" edit="false">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="timestamp"/>
+                                <field name="student_id"/>
+                                <field name="card_id"/>
+                            </group>
+                            <group>
+                                <field name="event_type"/>
+                                <field name="status"/>
+                                <field name="vehicle_id"/>
+                                <field name="route_id"/>
+                            </group>
+                        </group>
+                        <group string="Location">
+                            <field name="gps_lat"/>
+                            <field name="gps_lon"/>
+                        </group>
+                        <group string="Details">
+                            <field name="message"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_trip_log" model="ir.actions.act_window">
+            <field name="name">Trip Logs</field>
+            <field name="res_model">school.transport.trip.log</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Inherit Route View to add Vehicle -->
+        <record id="view_school_transport_route_form_inherit_iot" model="ir.ui.view">
+            <field name="name">school.transport.route.form.inherit.iot</field>
+            <field name="model">school.transport.route</field>
+            <field name="inherit_id" ref="at_school_management.view_school_transport_route_form"/>
+            <field name="arch" type="xml">
+                <field name="driver_name" position="after">
+                    <field name="vehicle_id"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Menus -->
+        <menuitem id="menu_transport_iot" name="IoT &amp; Tracking" parent="menu_school_transport" sequence="20"/>
+        <menuitem id="menu_student_card" name="Student Cards" parent="menu_transport_iot" action="action_student_card" sequence="10"/>
+        <menuitem id="menu_trip_log" name="Trip Logs" parent="menu_transport_iot" action="action_trip_log" sequence="20"/>
+
+    </data>
+</odoo>

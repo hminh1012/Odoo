@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Route 1: City Center Loop -->
+        <record id="demo_route_city_center" model="school.transport.route">
+            <field name="name">City Center Loop</field>
+            <field name="bus_number">DN-01</field>
+            <field name="driver_name">Nguyen Van A</field>
+            <field name="capacity">45</field>
+            <field name="student_ids" eval="[(6, 0, [
+                ref('student_123210001'), ref('student_123210004'), ref('student_123210005'),
+                ref('student_123210006'), ref('student_123210007'), ref('student_123210008'),
+                ref('student_123210009'), ref('student_123210010'), ref('student_123210011'),
+                ref('student_123210015'), ref('student_123210016')
+            ])]"/>
+        </record>
+
+        <record id="demo_stop_han_market" model="school.transport.stop">
+            <field name="name">Han Market</field>
+            <field name="route_id" ref="demo_route_city_center"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">7.00</field>
+            <field name="departure_time">7.05</field>
+            <field name="latitude">16.0678</field>
+            <field name="longitude">108.2229</field>
+        </record>
+
+        <record id="demo_stop_dragon_bridge" model="school.transport.stop">
+            <field name="name">Dragon Bridge</field>
+            <field name="route_id" ref="demo_route_city_center"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">7.15</field>
+            <field name="departure_time">7.20</field>
+            <field name="latitude">16.0606</field>
+            <field name="longitude">108.2275</field>
+        </record>
+
+        <record id="demo_stop_asia_park" model="school.transport.stop">
+            <field name="name">Asia Park</field>
+            <field name="route_id" ref="demo_route_city_center"/>
+            <field name="sequence">30</field>
+            <field name="arrival_time">7.35</field>
+            <field name="departure_time">7.40</field>
+            <field name="latitude">16.0396</field>
+            <field name="longitude">108.2251</field>
+        </record>
+
+        <record id="demo_stop_danang_cathedral" model="school.transport.stop">
+            <field name="name">Danang Cathedral</field>
+            <field name="route_id" ref="demo_route_city_center"/>
+            <field name="sequence">40</field>
+            <field name="arrival_time">7.50</field>
+            <field name="departure_time">7.55</field>
+            <field name="latitude">16.0738</field>
+            <field name="longitude">108.2208</field>
+        </record>
+
+        <record id="demo_stop_han_market_return" model="school.transport.stop">
+            <field name="name">Han Market (Return)</field>
+            <field name="route_id" ref="demo_route_city_center"/>
+            <field name="sequence">50</field>
+            <field name="arrival_time">8.05</field>
+            <field name="departure_time">8.10</field>
+            <field name="latitude">16.0678</field>
+            <field name="longitude">108.2229</field>
+        </record>
+
+        <!-- Route 2: Beach Route -->
+        <record id="demo_route_beach" model="school.transport.route">
+            <field name="name">Beach Route</field>
+            <field name="bus_number">DN-02</field>
+            <field name="driver_name">Tran Thi B</field>
+            <field name="capacity">40</field>
+            <field name="student_ids" eval="[(6, 0, [
+                ref('student_123210078'), ref('student_123210079'), ref('student_123210080'),
+                ref('student_123210081'), ref('student_123210091'), ref('student_123210092'),
+                ref('student_123210093'), ref('student_123210094'), ref('student_123210097'),
+                ref('student_123210018'), ref('student_123210019')
+            ])]"/>
+        </record>
+
+        <record id="demo_stop_danang_station" model="school.transport.stop">
+            <field name="name">Danang Railway Station</field>
+            <field name="route_id" ref="demo_route_beach"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">7.00</field>
+            <field name="departure_time">7.05</field>
+            <field name="latitude">16.0735</field>
+            <field name="longitude">108.2122</field>
+        </record>
+
+        <record id="demo_stop_my_khe_beach" model="school.transport.stop">
+            <field name="name">My Khe Beach</field>
+            <field name="route_id" ref="demo_route_beach"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">7.20</field>
+            <field name="departure_time">7.25</field>
+            <field name="latitude">16.0411</field>
+            <field name="longitude">108.2489</field>
+        </record>
+
+        <record id="demo_stop_non_nuoc_beach" model="school.transport.stop">
+            <field name="name">Non Nuoc Beach</field>
+            <field name="route_id" ref="demo_route_beach"/>
+            <field name="sequence">30</field>
+            <field name="arrival_time">7.40</field>
+            <field name="departure_time">7.45</field>
+            <field name="latitude">16.0065</field>
+            <field name="longitude">108.2632</field>
+        </record>
+
+        <record id="demo_stop_marble_mountains" model="school.transport.stop">
+            <field name="name">Marble Mountains</field>
+            <field name="route_id" ref="demo_route_beach"/>
+            <field name="sequence">40</field>
+            <field name="arrival_time">7.55</field>
+            <field name="departure_time">8.00</field>
+            <field name="latitude">16.0018</field>
+            <field name="longitude">108.2626</field>
+        </record>
+
+        <record id="demo_stop_danang_station_return" model="school.transport.stop">
+            <field name="name">Danang Railway Station (Return)</field>
+            <field name="route_id" ref="demo_route_beach"/>
+            <field name="sequence">50</field>
+            <field name="arrival_time">8.25</field>
+            <field name="departure_time">8.30</field>
+            <field name="latitude">16.0735</field>
+            <field name="longitude">108.2122</field>
+        </record>
+
+        <!-- Route 3: University Route -->
+        <record id="demo_route_university" model="school.transport.route">
+            <field name="name">University Route</field>
+            <field name="bus_number">DN-03</field>
+            <field name="driver_name">Le Van C</field>
+            <field name="capacity">50</field>
+            <field name="student_ids" eval="[(6, 0, [
+                ref('student_123210098'), ref('student_123210099'), ref('student_123210100'),
+                ref('student_123210101'), ref('student_123210102'), ref('student_123210103'),
+                ref('student_123210020'), ref('student_123210021'), ref('student_123210022'),
+                ref('student_123210023'), ref('student_123210024')
+            ])]"/>
+        </record>
+
+        <record id="demo_stop_danang_university" model="school.transport.stop">
+            <field name="name">Danang University</field>
+            <field name="route_id" ref="demo_route_university"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">6.30</field>
+            <field name="departure_time">6.35</field>
+            <field name="latitude">16.0736</field>
+            <field name="longitude">108.1509</field>
+        </record>
+
+        <record id="demo_stop_han_river" model="school.transport.stop">
+            <field name="name">Han River Bridge</field>
+            <field name="route_id" ref="demo_route_university"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">6.50</field>
+            <field name="departure_time">6.55</field>
+            <field name="latitude">16.0719</field>
+            <field name="longitude">108.2241</field>
+        </record>
+
+        <record id="demo_stop_indochina_mall" model="school.transport.stop">
+            <field name="name">Indochina Riverside Mall</field>
+            <field name="route_id" ref="demo_route_university"/>
+            <field name="sequence">30</field>
+            <field name="arrival_time">7.05</field>
+            <field name="departure_time">7.10</field>
+            <field name="latitude">16.0611</field>
+            <field name="longitude">108.2219</field>
+        </record>
+
+        <record id="demo_stop_big_c" model="school.transport.stop">
+            <field name="name">Big C Danang</field>
+            <field name="route_id" ref="demo_route_university"/>
+            <field name="sequence">40</field>
+            <field name="arrival_time">7.25</field>
+            <field name="departure_time">7.30</field>
+            <field name="latitude">16.0753</field>
+            <field name="longitude">108.2144</field>
+        </record>
+
+        <record id="demo_stop_danang_university_return" model="school.transport.stop">
+            <field name="name">Danang University (Return)</field>
+            <field name="route_id" ref="demo_route_university"/>
+            <field name="sequence">50</field>
+            <field name="arrival_time">7.50</field>
+            <field name="departure_time">7.55</field>
+            <field name="latitude">16.0736</field>
+            <field name="longitude">108.1509</field>
+        </record>
+
+        <!-- Route 4: Son Tra Peninsula Route -->
+        <record id="demo_route_son_tra" model="school.transport.route">
+            <field name="name">Son Tra Peninsula Route</field>
+            <field name="bus_number">DN-04</field>
+            <field name="driver_name">Pham Thi D</field>
+            <field name="capacity">35</field>
+            <field name="student_ids" eval="[(6, 0, [
+                ref('student_123210025'), ref('student_123210083'), ref('student_123210084'),
+                ref('student_123210085'), ref('student_123210086'), ref('student_123210088'),
+                ref('student_123210104'), ref('student_123210105'), ref('student_123210106'),
+                ref('student_123210107'), ref('student_123210108')
+            ])]"/>
+        </record>
+
+        <record id="demo_stop_linh_ung_pagoda" model="school.transport.stop">
+            <field name="name">Linh Ung Pagoda</field>
+            <field name="route_id" ref="demo_route_son_tra"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">8.00</field>
+            <field name="departure_time">8.05</field>
+            <field name="latitude">16.1058</field>
+            <field name="longitude">108.2760</field>
+        </record>
+
+        <record id="demo_stop_tien_sa_port" model="school.transport.stop">
+            <field name="name">Tien Sa Port</field>
+            <field name="route_id" ref="demo_route_son_tra"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">8.20</field>
+            <field name="departure_time">8.25</field>
+            <field name="latitude">16.1103</field>
+            <field name="longitude">108.2489</field>
+        </record>
+
+        <record id="demo_stop_bac_my_an_beach" model="school.transport.stop">
+            <field name="name">Bac My An Beach</field>
+            <field name="route_id" ref="demo_route_son_tra"/>
+            <field name="sequence">30</field>
+            <field name="arrival_time">8.40</field>
+            <field name="departure_time">8.45</field>
+            <field name="latitude">16.0619</field>
+            <field name="longitude">108.2531</field>
+        </record>
+
+        <record id="demo_stop_pham_van_dong_beach" model="school.transport.stop">
+            <field name="name">Pham Van Dong Beach</field>
+            <field name="route_id" ref="demo_route_son_tra"/>
+            <field name="sequence">40</field>
+            <field name="arrival_time">8.55</field>
+            <field name="departure_time">9.00</field>
+            <field name="latitude">16.0833</field>
+            <field name="longitude">108.2444</field>
+        </record>
+
+        <record id="demo_stop_linh_ung_return" model="school.transport.stop">
+            <field name="name">Linh Ung Pagoda (Return)</field>
+            <field name="route_id" ref="demo_route_son_tra"/>
+            <field name="sequence">50</field>
+            <field name="arrival_time">9.20</field>
+            <field name="departure_time">9.25</field>
+            <field name="latitude">16.1058</field>
+            <field name="longitude">108.2760</field>
+        </record>
+
+
+        <!-- Route 5: DUT Route -->
+        <record id="demo_route_dut" model="school.transport.route">
+            <field name="name">DUT Route</field>
+            <field name="bus_number">DN-05</field>
+            <field name="driver_name">Nguyen Van E</field>
+            <field name="capacity">45</field>
+            <field name="student_ids" eval="[(6, 0, [
+                ref('student_123210110'), ref('student_123210111'), ref('student_123210112'),
+                ref('student_123210113'), ref('student_123210114'), ref('student_123210116'),
+                ref('student_123210117'), ref('student_123210118'), ref('student_123210119'),
+                ref('student_123210120'), ref('student_123210121'), ref('student_123210122'),
+                ref('student_123210123'), ref('student_123210124'), ref('student_123210126'),
+                ref('student_123210127'), ref('student_123210128'), ref('student_123210129')
+            ])]"/>
+        </record>
+
+        <record id="demo_stop_dut" model="school.transport.stop">
+            <field name="name">Trường Đại học Bách Khoa - Đại học Đà Nẵng</field>
+            <field name="route_id" ref="demo_route_dut"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">6.45</field>
+            <field name="departure_time">6.50</field>
+            <field name="latitude">16.076794635484852</field>
+            <field name="longitude">108.1500406601073</field>
+        </record>
+
+        <record id="demo_stop_railway_station_dut" model="school.transport.stop">
+            <field name="name">Danang Railway Station</field>
+            <field name="route_id" ref="demo_route_dut"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">7.10</field>
+            <field name="departure_time">7.15</field>
+            <field name="latitude">16.0735</field>
+            <field name="longitude">108.2122</field>
+        </record>
+
+        <record id="demo_stop_dut_return" model="school.transport.stop">
+            <field name="name">Trường Đại học Bách Khoa - Đại học Đà Nẵng (Return)</field>
+            <field name="route_id" ref="demo_route_dut"/>
+            <field name="sequence">30</field>
+            <field name="arrival_time">7.40</field>
+            <field name="departure_time">7.45</field>
+            <field name="latitude">16.076794635484852</field>
+            <field name="longitude">108.1500406601073</field>
+        </record>
+
+    </data>
+</odoo>
