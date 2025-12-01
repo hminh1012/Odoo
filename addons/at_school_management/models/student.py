@@ -45,6 +45,10 @@ class Student(models.Model):
     x_lat = fields.Float(string="Latitude", digits=(10, 7), readonly=True)
     x_lon = fields.Float(string="Longitude", digits=(10, 7), readonly=True)
 
+    # --- PASSENGER MANAGEMENT FIELDS ---
+    pickup_stop_id = fields.Many2one('school.transport.stop', string="Pickup Stop")
+    dropoff_stop_id = fields.Many2one('school.transport.stop', string="Dropoff Stop")
+
     # --- NEW GEOCODING METHODS ---
     def geocode_record(self):
         """Button-callable method to geocode a single student's address."""

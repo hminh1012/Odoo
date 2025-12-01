@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
         
         <!-- Route 1: City Center Loop -->
         <record id="demo_route_city_center" model="school.transport.route">
@@ -303,6 +303,333 @@
             <field name="departure_time">7.45</field>
             <field name="latitude">16.076794635484852</field>
             <field name="longitude">108.1500406601073</field>
+        </record>
+
+
+        <!-- Force delete old records to ensure updates apply -->
+        <delete model="school.transport.route" search="[('bus_number', 'in', ['DN-06', 'DN-07', 'DN-08', 'DN-09', 'DN-10', 'DN-11', 'DN-12', 'DN-13', 'DN-14', 'DN-15'])]"/>
+
+        <!-- Route 6: Hoa Khanh Market Route -->
+        <record id="demo_route_hoa_khanh" model="school.transport.route">
+            <field name="name">Hoa Khanh Market Route</field>
+            <field name="bus_number">DN-06</field>
+            <field name="driver_name">Tran Van F</field>
+            <field name="capacity">40</field>
+            <field name="route_geometry">[[16.0544, 108.1578], [16.0555, 108.1590], [16.0565, 108.1610]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210001'), ref('student_123210004'), ref('student_123210005')])]"/>
+        </record>
+        <record id="demo_stop_hoa_khanh_market" model="school.transport.stop">
+            <field name="name">Hoa Khanh Market</field>
+            <field name="route_id" ref="demo_route_hoa_khanh"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">6.30</field>
+            <field name="departure_time">6.35</field>
+            <field name="latitude">16.0544</field>
+            <field name="longitude">108.1578</field>
+        </record>
+        <record id="demo_stop_hoa_khanh_stop_2" model="school.transport.stop">
+            <field name="name">Hoa Khanh North</field>
+            <field name="route_id" ref="demo_route_hoa_khanh"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">6.45</field>
+            <field name="departure_time">6.50</field>
+            <field name="latitude">16.0565</field>
+            <field name="longitude">108.1610</field>
+        </record>
+
+        <!-- Route 7: Airport Route -->
+        <record id="demo_route_airport" model="school.transport.route">
+            <field name="name">Airport Route</field>
+            <field name="bus_number">DN-07</field>
+            <field name="driver_name">Le Thi G</field>
+            <field name="capacity">35</field>
+            <field name="route_geometry">[[16.0538, 108.2042], [16.0520, 108.2020], [16.0500, 108.2000]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210006'), ref('student_123210007'), ref('student_123210008')])]"/>
+        </record>
+        <record id="demo_stop_airport" model="school.transport.stop">
+            <field name="name">Danang International Airport</field>
+            <field name="route_id" ref="demo_route_airport"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">6.45</field>
+            <field name="departure_time">6.50</field>
+            <field name="latitude">16.0538</field>
+            <field name="longitude">108.2042</field>
+        </record>
+        <record id="demo_stop_airport_stop_2" model="school.transport.stop">
+            <field name="name">Airport Terminal 2</field>
+            <field name="route_id" ref="demo_route_airport"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">7.00</field>
+            <field name="departure_time">7.05</field>
+            <field name="latitude">16.0500</field>
+            <field name="longitude">108.2000</field>
+        </record>
+
+        <!-- Route 8: Thuan Phuoc Bridge Route -->
+        <record id="demo_route_thuan_phuoc" model="school.transport.route">
+            <field name="name">Thuan Phuoc Bridge Route</field>
+            <field name="bus_number">DN-08</field>
+            <field name="driver_name">Pham Van H</field>
+            <field name="capacity">45</field>
+            <field name="route_geometry">[[16.0944, 108.2222], [16.0950, 108.2230], [16.0960, 108.2240]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210009'), ref('student_123210010'), ref('student_123210011')])]"/>
+        </record>
+        <record id="demo_stop_thuan_phuoc" model="school.transport.stop">
+            <field name="name">Thuan Phuoc Bridge</field>
+            <field name="route_id" ref="demo_route_thuan_phuoc"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">7.00</field>
+            <field name="departure_time">7.05</field>
+            <field name="latitude">16.0944</field>
+            <field name="longitude">108.2222</field>
+        </record>
+        <record id="demo_stop_thuan_phuoc_stop_2" model="school.transport.stop">
+            <field name="name">Thuan Phuoc Park</field>
+            <field name="route_id" ref="demo_route_thuan_phuoc"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">7.15</field>
+            <field name="departure_time">7.20</field>
+            <field name="latitude">16.0960</field>
+            <field name="longitude">108.2240</field>
+        </record>
+
+        <!-- Route 9: Cham Museum Route -->
+        <record id="demo_route_cham_museum" model="school.transport.route">
+            <field name="name">Cham Museum Route</field>
+            <field name="bus_number">DN-09</field>
+            <field name="driver_name">Nguyen Thi I</field>
+            <field name="capacity">30</field>
+            <field name="route_geometry">[[16.0614, 108.2236], [16.0620, 108.2245], [16.0630, 108.2255]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210015'), ref('student_123210016'), ref('student_123210018')])]"/>
+        </record>
+        <record id="demo_stop_cham_museum" model="school.transport.stop">
+            <field name="name">Cham Museum</field>
+            <field name="route_id" ref="demo_route_cham_museum"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">7.15</field>
+            <field name="departure_time">7.20</field>
+            <field name="latitude">16.0614</field>
+            <field name="longitude">108.2236</field>
+        </record>
+        <record id="demo_stop_cham_museum_stop_2" model="school.transport.stop">
+            <field name="name">Dragon Bridge Tail</field>
+            <field name="route_id" ref="demo_route_cham_museum"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">7.25</field>
+            <field name="departure_time">7.30</field>
+            <field name="latitude">16.0630</field>
+            <field name="longitude">108.2255</field>
+        </record>
+
+        <!-- Route 10: Love Bridge Route -->
+        <record id="demo_route_love_bridge" model="school.transport.route">
+            <field name="name">Love Bridge Route</field>
+            <field name="bus_number">DN-10</field>
+            <field name="driver_name">Tran Van K</field>
+            <field name="capacity">40</field>
+            <field name="route_geometry">[[16.0619, 108.2272], [16.0625, 108.2280], [16.0635, 108.2290]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210019'), ref('student_123210020'), ref('student_123210021')])]"/>
+        </record>
+        <record id="demo_stop_love_bridge" model="school.transport.stop">
+            <field name="name">Love Bridge</field>
+            <field name="route_id" ref="demo_route_love_bridge"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">7.30</field>
+            <field name="departure_time">7.35</field>
+            <field name="latitude">16.0619</field>
+            <field name="longitude">108.2272</field>
+        </record>
+        <record id="demo_stop_love_bridge_stop_2" model="school.transport.stop">
+            <field name="name">Dragon Bridge Head</field>
+            <field name="route_id" ref="demo_route_love_bridge"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">7.40</field>
+            <field name="departure_time">7.45</field>
+            <field name="latitude">16.0635</field>
+            <field name="longitude">108.2290</field>
+        </record>
+
+        <!-- Route 11: APEC Park Route -->
+        <record id="demo_route_apec_park" model="school.transport.route">
+            <field name="name">APEC Park Route</field>
+            <field name="bus_number">DN-11</field>
+            <field name="driver_name">Le Van L</field>
+            <field name="capacity">35</field>
+            <field name="route_geometry">[[16.0603, 108.2206], [16.0610, 108.2215], [16.0620, 108.2225]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210022'), ref('student_123210023'), ref('student_123210024')])]"/>
+        </record>
+        <record id="demo_stop_apec_park" model="school.transport.stop">
+            <field name="name">APEC Park</field>
+            <field name="route_id" ref="demo_route_apec_park"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">7.45</field>
+            <field name="departure_time">7.50</field>
+            <field name="latitude">16.0603</field>
+            <field name="longitude">108.2206</field>
+        </record>
+        <record id="demo_stop_apec_park_stop_2" model="school.transport.stop">
+            <field name="name">Binh Minh 4</field>
+            <field name="route_id" ref="demo_route_apec_park"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">7.55</field>
+            <field name="departure_time">8.00</field>
+            <field name="latitude">16.0620</field>
+            <field name="longitude">108.2225</field>
+        </record>
+
+        <!-- Route 12: Con Market Route -->
+        <record id="demo_route_con_market" model="school.transport.route">
+            <field name="name">Con Market Route</field>
+            <field name="bus_number">DN-12</field>
+            <field name="driver_name">Pham Thi M</field>
+            <field name="capacity">50</field>
+            <field name="route_geometry">[[16.0689, 108.2131], [16.0695, 108.2140], [16.0705, 108.2150]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210025'), ref('student_123210083'), ref('student_123210084')])]"/>
+        </record>
+        <record id="demo_stop_con_market" model="school.transport.stop">
+            <field name="name">Con Market</field>
+            <field name="route_id" ref="demo_route_con_market"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">8.00</field>
+            <field name="departure_time">8.05</field>
+            <field name="latitude">16.0689</field>
+            <field name="longitude">108.2131</field>
+        </record>
+        <record id="demo_stop_con_market_stop_2" model="school.transport.stop">
+            <field name="name">Big C Danang</field>
+            <field name="route_id" ref="demo_route_con_market"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">8.10</field>
+            <field name="departure_time">8.15</field>
+            <field name="latitude">16.0705</field>
+            <field name="longitude">108.2150</field>
+        </record>
+
+        <!-- Route 13: Helio Center Route -->
+        <record id="demo_route_helio" model="school.transport.route">
+            <field name="name">Helio Center Route</field>
+            <field name="bus_number">DN-13</field>
+            <field name="driver_name">Nguyen Van N</field>
+            <field name="capacity">45</field>
+            <field name="route_geometry">[[16.0392, 108.2267], [16.0400, 108.2275], [16.0410, 108.2285]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210085'), ref('student_123210086'), ref('student_123210088')])]"/>
+        </record>
+        <record id="demo_stop_helio" model="school.transport.stop">
+            <field name="name">Helio Center</field>
+            <field name="route_id" ref="demo_route_helio"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">8.15</field>
+            <field name="departure_time">8.20</field>
+            <field name="latitude">16.0392</field>
+            <field name="longitude">108.2267</field>
+        </record>
+        <record id="demo_stop_helio_stop_2" model="school.transport.stop">
+            <field name="name">Lotte Mart</field>
+            <field name="route_id" ref="demo_route_helio"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">8.25</field>
+            <field name="departure_time">8.30</field>
+            <field name="latitude">16.0410</field>
+            <field name="longitude">108.2285</field>
+        </record>
+
+        <!-- Route 14: Mikazuki Resort Route -->
+        <record id="demo_route_mikazuki" model="school.transport.route">
+            <field name="name">Mikazuki Resort Route</field>
+            <field name="bus_number">DN-14</field>
+            <field name="driver_name">Tran Thi O</field>
+            <field name="capacity">40</field>
+            <field name="route_geometry">[[16.1083, 108.1333], [16.1090, 108.1340], [16.1100, 108.1350]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210104'), ref('student_123210105'), ref('student_123210106')])]"/>
+        </record>
+        <record id="demo_stop_mikazuki" model="school.transport.stop">
+            <field name="name">Mikazuki Resort</field>
+            <field name="route_id" ref="demo_route_mikazuki"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">8.30</field>
+            <field name="departure_time">8.35</field>
+            <field name="latitude">16.1083</field>
+            <field name="longitude">108.1333</field>
+        </record>
+        <record id="demo_stop_mikazuki_stop_2" model="school.transport.stop">
+            <field name="name">Xuan Thieu Beach</field>
+            <field name="route_id" ref="demo_route_mikazuki"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">8.40</field>
+            <field name="departure_time">8.45</field>
+            <field name="latitude">16.1100</field>
+            <field name="longitude">108.1350</field>
+        </record>
+
+        <!-- Route 15: FPT City Route -->
+        <record id="demo_route_fpt_city" model="school.transport.route">
+            <field name="name">FPT City Route</field>
+            <field name="bus_number">DN-15</field>
+            <field name="driver_name">Le Van P</field>
+            <field name="capacity">55</field>
+            <field name="route_geometry">[[15.9750, 108.2611], [15.9760, 108.2620], [15.9770, 108.2630]]</field>
+            <field name="student_ids" eval="[(6, 0, [ref('student_123210107'), ref('student_123210108'), ref('student_123210110')])]"/>
+        </record>
+        <record id="demo_stop_fpt_city" model="school.transport.stop">
+            <field name="name">FPT City</field>
+            <field name="route_id" ref="demo_route_fpt_city"/>
+            <field name="sequence">10</field>
+            <field name="arrival_time">8.45</field>
+            <field name="departure_time">8.50</field>
+            <field name="latitude">15.9750</field>
+            <field name="longitude">108.2611</field>
+        </record>
+        <record id="demo_stop_fpt_city_stop_2" model="school.transport.stop">
+            <field name="name">FPT University</field>
+            <field name="route_id" ref="demo_route_fpt_city"/>
+            <field name="sequence">20</field>
+            <field name="arrival_time">8.55</field>
+            <field name="departure_time">9.00</field>
+            <field name="latitude">15.9770</field>
+            <field name="longitude">108.2630</field>
+        </record>
+
+
+        <!-- Assign stops to students for Route 6 (Hoa Khanh) -->
+        <record id="student_123210001" model="school.student">
+            <field name="pickup_stop_id" ref="demo_stop_hoa_khanh_market"/>
+            <field name="dropoff_stop_id" ref="demo_stop_hoa_khanh_stop_2"/>
+        </record>
+        <record id="student_123210004" model="school.student">
+            <field name="pickup_stop_id" ref="demo_stop_hoa_khanh_market"/>
+            <field name="dropoff_stop_id" ref="demo_stop_hoa_khanh_stop_2"/>
+        </record>
+        <record id="student_123210005" model="school.student">
+            <field name="pickup_stop_id" ref="demo_stop_hoa_khanh_market"/>
+            <field name="dropoff_stop_id" ref="demo_stop_hoa_khanh_stop_2"/>
+        </record>
+
+        <!-- Assign stops to students for Route 7 (Airport) -->
+        <record id="student_123210006" model="school.student">
+            <field name="pickup_stop_id" ref="demo_stop_airport"/>
+            <field name="dropoff_stop_id" ref="demo_stop_airport_stop_2"/>
+        </record>
+        <record id="student_123210007" model="school.student">
+            <field name="pickup_stop_id" ref="demo_stop_airport"/>
+            <field name="dropoff_stop_id" ref="demo_stop_airport_stop_2"/>
+        </record>
+        <record id="student_123210008" model="school.student">
+            <field name="pickup_stop_id" ref="demo_stop_airport"/>
+            <field name="dropoff_stop_id" ref="demo_stop_airport_stop_2"/>
+        </record>
+
+        <!-- Assign stops to students for Route 8 (Thuan Phuoc) -->
+        <record id="student_123210009" model="school.student">
+            <field name="pickup_stop_id" ref="demo_stop_thuan_phuoc"/>
+            <field name="dropoff_stop_id" ref="demo_stop_thuan_phuoc_stop_2"/>
+        </record>
+        <record id="student_123210010" model="school.student">
+            <field name="pickup_stop_id" ref="demo_stop_thuan_phuoc"/>
+            <field name="dropoff_stop_id" ref="demo_stop_thuan_phuoc_stop_2"/>
+        </record>
+        <record id="student_123210011" model="school.student">
+            <field name="pickup_stop_id" ref="demo_stop_thuan_phuoc"/>
+            <field name="dropoff_stop_id" ref="demo_stop_thuan_phuoc_stop_2"/>
         </record>
 
     </data>

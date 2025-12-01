@@ -8,8 +8,8 @@ access_school_exam_user,access_school_exam_user,model_school_exam,base.group_use
 access_school_exam_result_user,access_school_exam_result_user,model_school_exam_result,base.group_user,1,1,1,1
 access_school_library_book_user,access_school_library_book_user,model_school_library_book,base.group_user,1,1,1,1
 access_library_issue_user,access.library.issue.user,model_school_library_issue,base.group_user,1,1,1,1
-access_school_transport_route,access_school_transport_route,model_school_transport_route,,1,1,1,1
-access_school_transport_stop,access_school_transport_stop,model_school_transport_stop,,1,1,1,1
+access_school_transport_route,access_school_transport_route,model_school_transport_route,base.group_user,1,1,1,1
+access_school_transport_stop,access_school_transport_stop,model_school_transport_stop,base.group_user,1,1,1,1
 access_school_fee_payment_user,school.fee.payment.user,model_school_fee_payment,base.group_user,1,1,1,1
 access_hostel,hostel.hostel,model_hostel,base.group_user,1,1,1,1
 access_hostel_room,hostel.room,model_hostel_room,base.group_user,1,1,1,1

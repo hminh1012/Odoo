@@ -14,6 +14,9 @@
                                         <th>Bus Number</th>
                                         <th>Driver Name</th>
                                         <th>Capacity</th>
+                                        <th>Next Stop</th>
+                                        <th>Activity (In/Out)</th>
+                                        <th>Passengers Onboard</th>
                                         <th>Map</th>
                                     </tr>
                                 </thead>
@@ -24,6 +27,20 @@
                                             <td><span t-field="route.bus_number"/></td>
                                             <td><span t-field="route.driver_name"/></td>
                                             <td><span t-field="route.capacity"/></td>
+                                            <td>
+                                                <span t-if="route.next_stop_id" t-field="route.next_stop_id.name"/>
+                                                <span t-else="" class="text-muted">-</span>
+                                            </td>
+                                            <td>
+                                                <span class="badge badge-success" title="Boarding">+<t t-esc="route.boarding_next_count"/></span>
+                                                <span class="badge badge-danger" title="Alighting">-<t t-esc="route.alighting_next_count"/></span>
+                                            </td>
+                                            <td>
+                                                <span class="badge badge-info"><t t-esc="len(route.current_passenger_ids)"/></span>
+                                                <t t-foreach="route.current_passenger_ids" t-as="student">
+                                                    <small class="d-block text-muted"><t t-esc="student.name"/></small>
+                                                </t>
+                                            </td>
                                             <td>
                                                 <a t-attf-href="/school_transport/map/#{route.id}" class="btn btn-sm btn-primary">
                                                     View Map

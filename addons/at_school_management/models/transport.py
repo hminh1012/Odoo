@@ -23,6 +23,68 @@ class TransportRoute(models.Model):
     map_center_lon = fields.Float(string="Map Center Longitude", compute='_compute_map_center', store=True)
     route_map_html = fields.Html(string="Route Map HTML", compute='_compute_route_map_html', sanitize=False)
 
+    # --- PASSENGER MANAGEMENT FIELDS ---
+    current_stop_id = fields.Many2one('school.transport.stop', string="Current Stop", domain="[('route_id', '=', id)]")
+    
+    next_stop_id = fields.Many2one('school.transport.stop', string="Next Stop", compute='_compute_passenger_info', store=False)
+    boarding_next_count = fields.Integer(string="Boarding at Next Stop", compute='_compute_passenger_info', store=False)
+    alighting_next_count = fields.Integer(string="Alighting at Next Stop", compute='_compute_passenger_info', store=False)
+    
+    current_passenger_ids = fields.Many2many('school.student', string="Current Passengers", compute='_compute_passenger_info', store=False)
+
+    @api.depends('current_stop_id', 'stop_ids', 'student_ids.pickup_stop_id', 'student_ids.dropoff_stop_id')
+    def _compute_passenger_info(self):
+        for route in self:
+            # Default values
+            route.next_stop_id = False
+            route.boarding_next_count = 0
+            route.alighting_next_count = 0
+            route.current_passenger_ids = [(5, 0, 0)]
+
+            ordered_stops = route.stop_ids.sorted(key=lambda s: s.sequence)
+            
+            # 1. Determine Next Stop
+            if not route.current_stop_id:
+                # If no current stop, assume start of route, so next is the first stop
+                if ordered_stops:
+                    route.next_stop_id = ordered_stops[0]
+            else:
+                # Find current stop index and get next
+                current_idx = -1
+                for i, stop in enumerate(ordered_stops):
+                    if stop.id == route.current_stop_id.id:
+                        current_idx = i
+                        break
+                
+                if current_idx != -1 and current_idx + 1 < len(ordered_stops):
+                    route.next_stop_id = ordered_stops[current_idx + 1]
+
+            # 2. Calculate Boarding/Alighting for Next Stop
+            if route.next_stop_id:
+                route.boarding_next_count = self.env['school.student'].search_count([
+                    ('pickup_stop_id', '=', route.next_stop_id.id),
+                    ('id', 'in', route.student_ids.ids)
+                ])
+                route.alighting_next_count = self.env['school.student'].search_count([
+                    ('dropoff_stop_id', '=', route.next_stop_id.id),
+                    ('id', 'in', route.student_ids.ids)
+                ])
+
+            # 3. Calculate Current Passengers
+            # Students who have picked up (sequence <= current) AND have NOT dropped off (sequence > current)
+            # If no current stop, assume empty bus (or all if we consider "not started" differently, but empty is safer)
+            current_passengers = []
+            if route.current_stop_id:
+                current_seq = route.current_stop_id.sequence
+                
+                for student in route.student_ids:
+                    if student.pickup_stop_id and student.dropoff_stop_id:
+                        # Check if student is on board
+                        if student.pickup_stop_id.sequence <= current_seq and student.dropoff_stop_id.sequence > current_seq:
+                            current_passengers.append(student.id)
+            
+            route.current_passenger_ids = [(6, 0, current_passengers)]
+
 
     def _compute_route_map_html(self):
         for route in self:

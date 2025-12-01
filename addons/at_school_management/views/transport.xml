@@ -54,8 +54,29 @@
                     </group>
                     <group>
                         <field name="student_ids" widget="many2many_tags"/>
+                        <field name="current_stop_id"/>
                     </group>
                     <notebook>
+                        <page string="Passenger Info">
+                            <group string="Next Stop Status">
+                                <group>
+                                    <field name="next_stop_id" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="boarding_next_count" readonly="1"/>
+                                    <field name="alighting_next_count" readonly="1"/>
+                                </group>
+                            </group>
+                            <group string="Current Passengers">
+                                <field name="current_passenger_ids" readonly="1">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="class_id"/>
+                                        <field name="dropoff_stop_id"/>
+                                    </list>
+                                </field>
+                            </group>
+                        </page>
                         <page string="Route Stops">
                             <field name="stop_ids">
                                 <list editable="bottom">

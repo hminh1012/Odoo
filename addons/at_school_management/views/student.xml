@@ -120,6 +120,8 @@
                             <field name="roll_no"/>
                             <field name="class_id"/>
                             <field name="doj"/>
+                            <field name="pickup_stop_id"/>
+                            <field name="dropoff_stop_id"/>
                         </group>
                     </group>
                     <group>
