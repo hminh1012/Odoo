@@ -9,7 +9,11 @@ access_school_exam_result_user,access_school_exam_result_user,model_school_exam_
 access_school_library_book_user,access_school_library_book_user,model_school_library_book,base.group_user,1,1,1,1
 access_library_issue_user,access.library.issue.user,model_school_library_issue,base.group_user,1,1,1,1
 access_school_transport_route,access_school_transport_route,model_school_transport_route,base.group_user,1,1,1,1
+access_school_transport_route_public,access_school_transport_route_public,model_school_transport_route,base.group_public,1,0,0,0
+access_school_transport_route_portal,access_school_transport_route_portal,model_school_transport_route,base.group_portal,1,0,0,0
 access_school_transport_stop,access_school_transport_stop,model_school_transport_stop,base.group_user,1,1,1,1
+access_school_transport_stop_public,access_school_transport_stop_public,model_school_transport_stop,base.group_public,1,0,0,0
+access_school_transport_stop_portal,access_school_transport_stop_portal,model_school_transport_stop,base.group_portal,1,0,0,0
 access_school_fee_payment_user,school.fee.payment.user,model_school_fee_payment,base.group_user,1,1,1,1
 access_hostel,hostel.hostel,model_hostel,base.group_user,1,1,1,1
 access_hostel_room,hostel.room,model_hostel_room,base.group_user,1,1,1,1
