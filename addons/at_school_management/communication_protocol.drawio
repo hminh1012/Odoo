@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-02T12:00:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="unique-etag" version="15.8.7" type="device">
+  <diagram id="communication-protocol-diagram" name="Communication Protocol">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Lifelines -->
+        <mxCell id="iot_device" value="IoT Device (Bus)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="100" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="odoo_server" value="Odoo Server" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="100" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="database" value="PostgreSQL DB" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="80" width="100" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="web_client" value="Web Client" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="80" width="100" height="600" as="geometry" />
+        </mxCell>
+
+        <!-- Flow 1: Check-in -->
+        <mxCell id="msg1" value="POST /api/checkin (Card ID, GPS)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="iot_device" target="odoo_server">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="150" y="160" as="sourcePoint" />
+            <mxPoint x="350" y="160" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="250" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg2" value="Search Student Card" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="odoo_server" target="database">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="350" y="200" as="sourcePoint" />
+            <mxPoint x="550" y="200" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="450" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg3" value="Return Card Data" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="database" target="odoo_server">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="550" y="240" as="sourcePoint" />
+            <mxPoint x="350" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="450" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg4" value="Create Trip Log" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="odoo_server" target="database">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="350" y="280" as="sourcePoint" />
+            <mxPoint x="550" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="450" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg5" value="200 OK (JSON)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="odoo_server" target="iot_device">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="350" y="320" as="sourcePoint" />
+            <mxPoint x="150" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="250" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Flow 2: Live Status Polling -->
+        <mxCell id="msg6" value="GET /api/live_status" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="web_client" target="odoo_server">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="750" y="400" as="sourcePoint" />
+            <mxPoint x="350" y="400" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="550" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg7" value="Search Active Routes" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="odoo_server" target="database">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="350" y="440" as="sourcePoint" />
+            <mxPoint x="550" y="440" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="450" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg8" value="Return Route Data" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="database" target="odoo_server">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="550" y="480" as="sourcePoint" />
+            <mxPoint x="350" y="480" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="450" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg9" value="200 OK (Passenger List)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="odoo_server" target="web_client">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="350" y="520" as="sourcePoint" />
+            <mxPoint x="750" y="520" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="550" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

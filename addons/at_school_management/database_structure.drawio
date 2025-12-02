@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-01T14:50:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" etag="unique-etag" version="14.8.5" type="device">
+  <diagram id="school_management_db" name="School Management Database">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- School Student -->
+        <mxCell id="student" value="school.student" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="200" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="student_fields" value="name: Char&#xa;admission_no: Char&#xa;dob: Date&#xa;gender: Selection&#xa;class_id: Many2one&#xa;parent_id: Many2one&#xa;pickup_stop_id: Many2one&#xa;dropoff_stop_id: Many2one&#xa;image_1920: Image&#xa;x_lat: Float&#xa;x_lon: Float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="student">
+          <mxGeometry y="26" width="200" height="274" as="geometry" />
+        </mxCell>
+
+        <!-- School Class -->
+        <mxCell id="class" value="school.class" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="class_fields" value="name: Char&#xa;section: Char&#xa;grade: Char&#xa;academic_year: Char" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="class">
+          <mxGeometry y="26" width="160" height="94" as="geometry" />
+        </mxCell>
+
+        <!-- School Parent -->
+        <mxCell id="parent" value="school.parent" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="parent_fields" value="name: Char&#xa;contact_no: Char&#xa;email: Char&#xa;occupation: Char&#xa;relation: Selection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="parent">
+          <mxGeometry y="26" width="180" height="114" as="geometry" />
+        </mxCell>
+
+        <!-- School Teacher -->
+        <mxCell id="teacher" value="hr.employee (Teacher)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="teacher_fields" value="is_teacher: Boolean&#xa;qualification: Text&#xa;joining_date: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="teacher">
+          <mxGeometry y="26" width="180" height="94" as="geometry" />
+        </mxCell>
+
+        <!-- School Subject -->
+        <mxCell id="subject" value="school.subject" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="200" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="subject_fields" value="name: Char&#xa;subject_code: Char&#xa;description: Text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="subject">
+          <mxGeometry y="26" width="180" height="74" as="geometry" />
+        </mxCell>
+
+        <!-- School Exam -->
+        <mxCell id="exam" value="school.exam" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="200" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="exam_fields" value="name: Char&#xa;class_id: Many2one&#xa;subject_id: Many2one&#xa;exam_datetime: Datetime&#xa;max_marks: Integer&#xa;passing_marks: Integer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="exam">
+          <mxGeometry y="26" width="180" height="114" as="geometry" />
+        </mxCell>
+
+        <!-- School Exam Result -->
+        <mxCell id="exam_result" value="school.exam.result" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="400" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="exam_result_fields" value="student_id: Many2one&#xa;exam_id: Many2one&#xa;marks_obtained: Integer&#xa;grade: Char&#xa;status: Selection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="exam_result">
+          <mxGeometry y="26" width="180" height="94" as="geometry" />
+        </mxCell>
+
+        <!-- Transport Route -->
+        <mxCell id="route" value="school.transport.route" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="40" width="220" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="route_fields" value="name: Char&#xa;bus_number: Char&#xa;driver_name: Char&#xa;capacity: Integer&#xa;vehicle_id: Many2one&#xa;current_stop_id: Many2one&#xa;map_center_lat: Float&#xa;map_center_lon: Float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="route">
+          <mxGeometry y="26" width="220" height="174" as="geometry" />
+        </mxCell>
+
+        <!-- Transport Stop -->
+        <mxCell id="stop" value="school.transport.stop" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="300" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="stop_fields" value="name: Char&#xa;sequence: Integer&#xa;arrival_time: Float&#xa;departure_time: Float&#xa;route_id: Many2one&#xa;latitude: Float&#xa;longitude: Float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="stop">
+          <mxGeometry y="26" width="200" height="114" as="geometry" />
+        </mxCell>
+
+        <!-- Transport Trip Log -->
+        <mxCell id="trip_log" value="school.transport.trip.log" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="500" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="trip_log_fields" value="student_id: Many2one&#xa;card_id: Char&#xa;route_id: Many2one&#xa;vehicle_id: Many2one&#xa;timestamp: Datetime&#xa;gps_lat: Float&#xa;gps_lon: Float&#xa;event_type: Selection&#xa;status: Selection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="trip_log">
+          <mxGeometry y="26" width="200" height="134" as="geometry" />
+        </mxCell>
+
+        <!-- Hostel -->
+        <mxCell id="hostel" value="hostel" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="40" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="hostel_fields" value="name: Char&#xa;code: Char&#xa;address: Char&#xa;total_rooms: Integer&#xa;manager_id: Many2one" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hostel">
+          <mxGeometry y="26" width="180" height="94" as="geometry" />
+        </mxCell>
+
+        <!-- Hostel Room -->
+        <mxCell id="hostel_room" value="hostel.room" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="200" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hostel_room_fields" value="name: Char&#xa;hostel_id: Many2one&#xa;capacity: Integer&#xa;current_occupancy: Integer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hostel_room">
+          <mxGeometry y="26" width="180" height="74" as="geometry" />
+        </mxCell>
+
+        <!-- Hostel Student -->
+        <mxCell id="hostel_student" value="hostel.student" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="350" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hostel_student_fields" value="student_id: Many2one&#xa;hostel_id: Many2one&#xa;room_id: Many2one&#xa;status: Selection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hostel_student">
+          <mxGeometry y="26" width="180" height="74" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+        <!-- Student -> Class -->
+        <mxCell id="rel_student_class" edge="1" parent="1" source="student" target="class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Student -> Parent -->
+        <mxCell id="rel_student_parent" edge="1" parent="1" source="student" target="parent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Exam -> Class -->
+        <mxCell id="rel_exam_class" edge="1" parent="1" source="exam" target="class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Exam -> Subject -->
+        <mxCell id="rel_exam_subject" edge="1" parent="1" source="exam" target="subject">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Exam Result -> Student -->
+        <mxCell id="rel_exam_res_student" edge="1" parent="1" source="exam_result" target="student">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Exam Result -> Exam -->
+        <mxCell id="rel_exam_res_exam" edge="1" parent="1" source="exam_result" target="exam">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Stop -> Route -->
+        <mxCell id="rel_stop_route" edge="1" parent="1" source="stop" target="route">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Trip Log -> Student -->
+        <mxCell id="rel_log_student" edge="1" parent="1" source="trip_log" target="student">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Trip Log -> Route -->
+        <mxCell id="rel_log_route" edge="1" parent="1" source="trip_log" target="route">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Hostel Room -> Hostel -->
+        <mxCell id="rel_room_hostel" edge="1" parent="1" source="hostel_room" target="hostel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Hostel Student -> Student -->
+        <mxCell id="rel_hs_student" edge="1" parent="1" source="hostel_student" target="student">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Hostel Student -> Room -->
+        <mxCell id="rel_hs_room" edge="1" parent="1" source="hostel_student" target="hostel_room">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

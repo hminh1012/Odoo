@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-12-01T15:00:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" etag="unique-etag" version="14.8.5" type="device">
+  <diagram id="school_transport_sequence" name="Transport Flow Sequence">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Participants -->
+        <mxCell id="iot" value="IoT Device / RFID" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="40" width="100" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="browser" value="Website Client (Browser)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="140" height="600" as="geometry" />
+        </mxCell>
+
+        <mxCell id="controller" value="Odoo Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="40" width="120" height="600" as="geometry" />
+        </mxCell>
+
+        <mxCell id="db" value="Odoo DB / Models" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="40" width="120" height="600" as="geometry" />
+        </mxCell>
+
+        <!-- Sequence: IoT Check-in -->
+        <mxCell id="msg1" value="POST /school_transport/api/checkin (card_id, gps)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="iot" target="controller">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="150" y="120" as="sourcePoint" />
+            <mxPoint x="560" y="120" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="350" y="120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg2" value="Search Student Card (card_id)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="controller" target="db">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="560" y="150" as="sourcePoint" />
+            <mxPoint x="760" y="150" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="660" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg3" value="Return Student Record" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="db" target="controller">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="760" y="180" as="sourcePoint" />
+            <mxPoint x="560" y="180" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="660" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg4" value="Create Trip Log (check_in/out)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="controller" target="db">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="560" y="210" as="sourcePoint" />
+            <mxPoint x="760" y="210" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="660" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg5" value="200 OK (Success)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="controller" target="iot">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="560" y="240" as="sourcePoint" />
+            <mxPoint x="150" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="350" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Sequence: Real-time Update -->
+        <mxCell id="note1" value="Loop every 5s" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="240" y="280" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="msg6" value="GET /school_transport/api/live_status" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="browser" target="controller">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="370" y="320" as="sourcePoint" />
+            <mxPoint x="560" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg7" value="Search Routes" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="controller" target="db">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="560" y="350" as="sourcePoint" />
+            <mxPoint x="760" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="660" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg8" value="Compute current_passengers (read logs)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="db" target="db">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="760" y="380" as="sourcePoint" />
+            <mxPoint x="760" y="420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="810" y="380" />
+              <mxPoint x="810" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg9" value="Return Route Data (JSON)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="controller" target="browser">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="560" y="450" as="sourcePoint" />
+            <mxPoint x="370" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg10" value="Update DOM (Passenger Count/List)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1" source="browser" target="browser">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="370" y="480" as="sourcePoint" />
+            <mxPoint x="370" y="520" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="480" />
+              <mxPoint x="420" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

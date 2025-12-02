@@ -108,6 +108,30 @@ class SchoolTransportController(http.Controller):
             headers={'Content-Type': 'application/json'}
         )
 
+    @http.route('/school_transport/api/live_status', type='http', auth='public', methods=['GET'], csrf=False)
+    def live_status(self, **kwargs):
+        """API to get real-time passenger status for all routes."""
+        routes = request.env['school.transport.route'].sudo().search([])
+        data = {}
+        
+        for route in routes:
+            passengers = []
+            for student in route.current_passenger_ids:
+                passengers.append({
+                    'id': student.id,
+                    'name': student.name
+                })
+            
+            data[route.id] = {
+                'passenger_count': len(passengers),
+                'passengers': passengers
+            }
+            
+        return request.make_response(
+            json.dumps(data),
+            headers={'Content-Type': 'application/json'}
+        )
+
     @http.route('/school', type='http', auth='public', website=True)
     def school_routes(self, **kwargs):
         """Display list of all school bus routes."""

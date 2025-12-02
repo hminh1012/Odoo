@@ -2,6 +2,7 @@ from odoo import models, fields, api, _
 import logging
 import json
 import math
+from datetime import timedelta
 
 _logger = logging.getLogger(__name__)
 
@@ -70,18 +71,27 @@ class TransportRoute(models.Model):
                     ('id', 'in', route.student_ids.ids)
                 ])
 
-            # 3. Calculate Current Passengers
-            # Students who have picked up (sequence <= current) AND have NOT dropped off (sequence > current)
-            # If no current stop, assume empty bus (or all if we consider "not started" differently, but empty is safer)
+            # 3. Calculate Current Passengers based on Trip Logs (Attendance History)
+            # Logic: Find latest log for each student on this route today. If 'check_in', they are onboard.
             current_passengers = []
-            if route.current_stop_id:
-                current_seq = route.current_stop_id.sequence
-                
-                for student in route.student_ids:
-                    if student.pickup_stop_id and student.dropoff_stop_id:
-                        # Check if student is on board
-                        if student.pickup_stop_id.sequence <= current_seq and student.dropoff_stop_id.sequence > current_seq:
-                            current_passengers.append(student.id)
+            
+            # Get logs for this route from the last 24 hours to ensure relevance
+            logs = self.env['school.transport.trip.log'].search([
+                ('route_id', '=', route.id),
+                ('timestamp', '>=', fields.Datetime.now() - timedelta(hours=24)),
+                ('status', '=', 'success')
+            ], order='timestamp desc')
+
+            # Process logs to find latest status per student
+            student_status = {}
+            for log in logs:
+                if log.student_id.id not in student_status:
+                    student_status[log.student_id.id] = log.event_type
+            
+            # Filter students who are currently checked in
+            for student_id, status in student_status.items():
+                if status == 'check_in':
+                    current_passengers.append(student_id)
             
             route.current_passenger_ids = [(6, 0, current_passengers)]
 
